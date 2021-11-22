@@ -29,26 +29,11 @@ GLfloat lastY = HEIGHT / 2.0;
 bool keys[1024];
 bool firstMouse = true;
 float range = 0.0f;
-float rot = 0.0f;
 
 
 // Light attributes
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
 bool active;
-
-//Posiciones Tren
-float	movTren_x = 15.0f,
-movTren_y = -9.0f,
-movTren_z = -9.0f,
-orienta = 0.0f,
-giroLLantas = 0.0f;
-
-//Animacion Tren
-bool	recorrido1 = true,
-recorrido2 = false,
-recorrido3 = false,
-recorrido4 = false,
-recorrido5 = false;
 
 
 // Deltatime
@@ -57,7 +42,10 @@ GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 // Keyframes
 float posX = 50, posY = 50, posZ = -50;
-float incX, incY, incZ;//Variables KeyFrames
+float rightArm1, leftArm1;
+float rightArm2, leftArm2, rightLeg2, leftLeg2;
+float movLegoX, movLegoY, movLegoZ;
+
 #define MAX_FRAMES 9
 int i_max_steps = 190;
 int i_curr_steps = 0;
@@ -70,6 +58,20 @@ typedef struct _frame
 		float incX;		//Variable para IncrementoX
 		float incY;		//Variable para IncrementoY
 		float incZ;		//Variable para IncrementoZ
+		
+		float rightArm1;
+		float incRightArm1;
+		float leftArm1;
+		float incLeftArm1;
+
+		float rightArm2;
+		float incRightArm2;
+		float leftArm2;
+		float incLeftArm2;
+		float rightLeg2;
+		float incRightLeg2;
+		float leftLeg2;
+		float incLeftLeg2;
 }FRAME;
 
 FRAME KeyFrame[MAX_FRAMES];
@@ -141,6 +143,14 @@ void saveFrame(void)
 	KeyFrame[FrameIndex].posY = posY;
 	KeyFrame[FrameIndex].posZ = posZ;
 
+	KeyFrame[FrameIndex].rightArm1 = rightArm1;
+	KeyFrame[FrameIndex].leftArm1 = leftArm1;
+
+	KeyFrame[FrameIndex].rightArm2 = rightArm2;
+	KeyFrame[FrameIndex].leftArm2 = leftArm2;
+	KeyFrame[FrameIndex].rightLeg2 = rightLeg2;
+	KeyFrame[FrameIndex].leftLeg2 = leftLeg2;
+
 	FrameIndex++;
 }
 
@@ -149,7 +159,14 @@ void resetElements(void)
 	posX = KeyFrame[0].posX;
 	posY = KeyFrame[0].posY;
 	posZ = KeyFrame[0].posZ;
+	
+	rightArm1 = KeyFrame[0].rightArm1;
+	leftArm1 = KeyFrame[0].leftArm1;
 
+	rightArm2 = KeyFrame[0].rightArm2;
+	leftArm2 = KeyFrame[0].leftArm2;
+	rightLeg2 = KeyFrame[0].rightLeg2;
+	leftLeg2 = KeyFrame[0].leftLeg2;
 }
 
 void interpolation(void)
@@ -158,6 +175,14 @@ void interpolation(void)
 	KeyFrame[playIndex].incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
 	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
 	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
+
+	KeyFrame[playIndex].incRightArm1 = (KeyFrame[playIndex + 1].rightArm1 - KeyFrame[playIndex].rightArm1) / i_max_steps;
+	KeyFrame[playIndex].incLeftArm1 = (KeyFrame[playIndex + 1].leftArm1 - KeyFrame[playIndex].leftArm1) / i_max_steps;
+
+	KeyFrame[playIndex].incRightArm2 = (KeyFrame[playIndex + 1].rightArm2 - KeyFrame[playIndex].rightArm2) / i_max_steps;
+	KeyFrame[playIndex].incLeftArm2 = (KeyFrame[playIndex + 1].leftArm2 - KeyFrame[playIndex].leftArm2) / i_max_steps;
+	KeyFrame[playIndex].incRightLeg2 = (KeyFrame[playIndex + 1].rightLeg2 - KeyFrame[playIndex].rightLeg2) / i_max_steps;
+	KeyFrame[playIndex].incLeftLeg2 = (KeyFrame[playIndex + 1].leftLeg2 - KeyFrame[playIndex].leftLeg2) / i_max_steps;
 }
 
 void iluminacion(void)
@@ -402,7 +427,7 @@ int main()
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader SkyBoxshader("Shaders/SkyBox.vs", "Shaders/SkyBox.frag");
 
-	Model Trees((char*)"Models/Trees/trees.obj");
+	//Model Trees((char*)"Models/Trees/trees.obj");
 	Model House((char*)"Models/House/house.obj");
 	//Model LivingRoom((char*)"Models/LivingRoom/livingRoom.obj");
 	//Model LivingRoom2((char*)"Models/LivingRoom/livingRoom2.obj");
@@ -411,43 +436,15 @@ int main()
 	//Model Room((char*)"Models/Room/room.obj");
 	//Model Presents((char*)"Models/Presents/presents.obj");
 	//Model Windows((char*)"Models/Windows/windows.obj");
-	Model MailBox((char*)"Models/Mailbox/mailbox.obj");
-	Model Sled((char*)"Models/Sled/sled.obj");
-	Model Sign((char*)"Models/Sign/sign.obj");
-	//Model Santa((char*)"Models/Santa/Santa_OBJ.obj");
-
-	////TREN
-	Model TrenDecorativo((char*)"Models/TrenDecorativo/TrenDecorativo.obj");
-	//Piezas o partes del tren animado
-	Model BarraDerCorta((char*)"Models/TrenAnimacionOK/BarraDerCorta.obj");
-	Model BarraDerLarga((char*)"Models/TrenAnimacionOK/BarraDerLarga.obj");
-	Model BarraIzqCorta((char*)"Models/TrenAnimacionOK/BarraIzqCorta.obj");
-	Model BarraIzqLarga((char*)"Models/TrenAnimacionOK/BarraIzqLarga.obj");
-	Model Campana((char*)"Models/TrenAnimacionOK/Campana.obj");
-	Model Tren((char*)"Models/TrenAnimacionOK/Tren.obj");
-	Model RuedaDer1((char*)"Models/TrenAnimacionOK/RuedaDer1.obj");
-	Model RuedaDer2((char*)"Models/TrenAnimacionOK/RuedaDer2.obj");
-	Model RuedaDer3((char*)"Models/TrenAnimacionOK/RuedaDer3.obj");
-	Model RuedaDer4((char*)"Models/TrenAnimacionOK/RuedaDer4.obj");
-	Model RuedaDer5((char*)"Models/TrenAnimacionOK/RuedaDer5.obj");
-	Model RuedaDer6((char*)"Models/TrenAnimacionOK/RuedaDer6.obj");
-	Model RuedaDer7((char*)"Models/TrenAnimacionOK/RuedaDer7.obj");
-	Model RuedaDer8((char*)"Models/TrenAnimacionOK/RuedaDer8.obj");
-	Model RuedaIzq1((char*)"Models/TrenAnimacionOK/RuedaIzq1.obj");
-	Model RuedaIzq2((char*)"Models/TrenAnimacionOK/RuedaIzq2.obj");
-	Model RuedaIzq3((char*)"Models/TrenAnimacionOK/RuedaIzq3.obj");
-	Model RuedaIzq4((char*)"Models/TrenAnimacionOK/RuedaIzq4.obj");
-	Model RuedaIzq5((char*)"Models/TrenAnimacionOK/RuedaIzq5.obj");
-	Model RuedaIzq6((char*)"Models/TrenAnimacionOK/RuedaIzq6.obj");
-	Model RuedaIzq7((char*)"Models/TrenAnimacionOK/RuedaIzq7.obj");
-	Model RuedaIzq8((char*)"Models/TrenAnimacionOK/RuedaIzq8.obj");
-	//LEGO
-	Model CuerpoLego((char*)"Models/LegoOK/CuerpoLego.obj");
-	Model CabezaLego((char*)"Models/LegoOK/CabezaLego.obj");
-	Model BrazoDerLego((char*)"Models/LegoOK/BrazoDerLego.obj");
-	Model BrazoIzqLego((char*)"Models/LegoOK/BrazoIzqLego.obj");
-	Model PieDerLego((char*)"Models/LegoOK/PieDerLego.obj");
-	Model PieIzqLego((char*)"Models/LegoOK/PieIzqLego.obj");
+	//Model MailBox((char*)"Models/Mailbox/mailbox.obj");
+	//Model Sled((char*)"Models/Sled/sled.obj");
+	//Model Sign((char*)"Models/Sign/sign.obj");
+	Model body((char*)"Models/Lego/body.obj");
+	Model head((char*)"Models/Lego/head.obj");
+	Model RightArm((char*)"Models/Lego/rightArm.obj");
+	Model LeftArm((char*)"Models/Lego/leftArm.obj");
+	Model RightLeg((char*)"Models/Lego/rightLeg.obj");
+	Model LeftLeg((char*)"Models/Lego/leftLeg.obj");
 
 
 	//Inicializaci�n de KeyFrames
@@ -460,6 +457,20 @@ int main()
 		KeyFrame[i].incX = 0;
 		KeyFrame[i].incY = 0;
 		KeyFrame[i].incZ = 0;
+
+		KeyFrame[i].rightArm1 = 0;
+		KeyFrame[i].incRightArm1 = 0;
+		KeyFrame[i].leftArm1 = 0;
+		KeyFrame[i].incLeftArm1 = 0;
+
+		KeyFrame[i].rightArm2 = 0;
+		KeyFrame[i].incRightArm2 = 0;
+		KeyFrame[i].leftArm2 = 0;
+		KeyFrame[i].incLeftArm2 = 0;
+		KeyFrame[i].incRightLeg2 = 0;
+		KeyFrame[i].incRightLeg2 = 0;
+		KeyFrame[i].leftLeg2 = 0;
+		KeyFrame[i].incLeftLeg2 = 0;
 	}
 
 
@@ -714,149 +725,93 @@ int main()
 		//MailBox.Draw(lightingShader);
 
 
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movx, movy, movz));
-		model = rotate(model, glm::radians(rotSled), glm::vec3(0,1,0));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Sled.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//model = glm::translate(model, glm::vec3(movx, movy, movz));
+		//model = rotate(model, glm::radians(rotSled), glm::vec3(0,1,0));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Sled.Draw(lightingShader);
 
 
-		//MODELO TREN DECORATIVO
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		TrenDecorativo.Draw(lightingShader);
+		////Lego character1
+		//model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(1+movx, 23.1+movy, movz));
+		//model = glm::rotate(model, glm::radians(rotSled+90), glm::vec3(0, 1, 0));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//body.Draw(lightingShader);
 
-		//Tren
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
+		//model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		//model = glm::translate(model, glm::vec3(0, 1.4, 0));
 		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Tren.Draw(lightingShader);
-		////Campana
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Campana.Draw(lightingShader);
-		////Barras
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//BarraDerCorta.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//BarraDerLarga.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//BarraIzqCorta.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//BarraIzqLarga.Draw(lightingShader);
-		////Ruedas
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer1.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer2.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer3.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer4.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer5.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer6.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer7.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaDer8.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq1.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq2.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq3.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq4.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq5.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq6.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq7.Draw(lightingShader);
-		//model = glm::rotate(glm::mat4(1.0f), glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::translate(model, glm::vec3(movTren_x, movTren_y, movTren_z));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RuedaIzq8.Draw(lightingShader);
+		//head.Draw(lightingShader);
 
-		//MODELO LEGO
+		//model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		//model = glm::translate(model, glm::vec3(-0.93, 0.6, -0.1));
+		//model = glm::rotate(model, glm::radians(rightArm1), glm::vec3(0, 0, 1));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//RightArm.Draw(lightingShader);
+
+		//model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		//model = glm::translate(model, glm::vec3(0.85, 0.65, -0.2));
+		//model = glm::rotate(model, glm::radians(leftArm1), glm::vec3(1, 0, 0));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//LeftArm.Draw(lightingShader);
+
+		//model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		//model = glm::translate(model, glm::vec3(-1.1, -1.22, -0.09));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//RightLeg.Draw(lightingShader);
+
+		//model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		//model = glm::translate(model, glm::vec3(1.1, -1.22, -0.05));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//LeftLeg.Draw(lightingShader);
+
+		//Lego character2
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1+movx, 23+movy, movz));
-		model = glm::rotate(model, glm::radians(rotSled+90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0,-7.6,-40.05));
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		CuerpoLego.Draw(lightingShader);
+		body.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
-		model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0, -6.37, -40.18));
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		CabezaLego.Draw(lightingShader);
+		head.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(-0.9, -7, -40));
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		BrazoDerLego.Draw(lightingShader);
+		RightArm.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0.9, -7, -40));
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		BrazoIzqLego.Draw(lightingShader);
+		LeftArm.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(-1.1, -9, -40.07));
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		PieDerLego.Draw(lightingShader);
+		RightLeg.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(1.1, -9, -40));
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		PieIzqLego.Draw(lightingShader);
-
+		LeftLeg.Draw(lightingShader);
 
 
 		glEnable(GL_DEPTH_TEST);
@@ -974,6 +929,13 @@ void animacion()
 			posY += KeyFrame[playIndex].incY;
 			posZ += KeyFrame[playIndex].incZ;
 
+			rightArm1 += KeyFrame[playIndex].incRightArm1;
+			leftArm1 += KeyFrame[playIndex].incLeftArm1;
+
+			rightArm2 += KeyFrame[playIndex].incRightArm2;
+			leftArm2 += KeyFrame[playIndex].incLeftArm2;
+			rightLeg2 += KeyFrame[playIndex].incRightLeg2;
+			leftLeg2 += KeyFrame[playIndex].incLeftLeg2;
 			i_curr_steps++;
 		}	
 	}
@@ -1045,56 +1007,12 @@ void animacion()
 			}
 		}
 	} //Animación trineo.
-
-	//ANIMACION TREN
-	if (recorrido1)
-	{
-		movTren_z += 2.0f;
-		if (movTren_z <= 19.0f)
-		{
-			recorrido1 = false;
-			recorrido2 = true;
-		}
-	}
-	if (recorrido2)
-	{
-		movTren_x = 2.0f;
-		orienta = 0.0f;
-		if (movTren_x <= 25.0f)
-		{
-			recorrido2 = false;
-			recorrido3 = true;
-		}
-	}
-	if (recorrido3)
-	{
-		movTren_x += 0.666f;
-		movTren_z += 2.0f;
-		orienta = 32.15f;
-		if (movTren_x >= 0.0f && movTren_z >= 200.0f)
-		{
-			recorrido3 = false;
-			recorrido1 = true;
-		}
-	}
 }
 
 
 // Is called whenever a key is pressed/released via GLFW
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	if (keys[GLFW_KEY_0])
-	{
-		posX += 0.2;
-		posY += 0.2;
-		posZ += 0.2;
-	}
-	if (keys[GLFW_KEY_1])
-	{
-		posX -= 0.2;
-		posY -= 0.2;
-		posZ -= 0.2;
-	}
 	if (keys[GLFW_KEY_L])
 	{
 		if (play == false && (FrameIndex > 1))
@@ -1112,7 +1030,6 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		{
 			play = false;
 		}
-		sledTrayectory = !sledTrayectory;
 	}
 
 	if (keys[GLFW_KEY_K])
@@ -1121,9 +1038,10 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		{
 			saveFrame();
 		}
-
 	}
 
+	if (keys[GLFW_KEY_F])
+		sledTrayectory = !sledTrayectory;
 
 	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
 	{
@@ -1218,16 +1136,33 @@ void DoMovement()
 		camera.ProcessKeyboard(RIGHT, deltaTime+0.05);
 	}
 
-	//TREN animation inicia letra P
-	if (keys[GLFW_KEY_P])
-		recorrido1 = true;
-
-	//RESETEAR EL TREN CON LETRA K
-	if (keys[GLFW_KEY_K])
+	if (keys[GLFW_KEY_1])
 	{
-		recorrido1 = false;
-		movTren_x = 15.0f;
-		movTren_y = -9.0f;
-		movTren_z = -9.0f;
+		if (rightArm1 < 90)
+			rightArm1++;
+		posX += 0.3;
+		posY += 0.3;
+		posZ += 0.3;
+	}
+
+	if (keys[GLFW_KEY_2])
+	{
+		if (rightArm1 > 0.0f)
+			rightArm1--;;
+		posX -= 0.3;
+		posY -= 0.3;
+		posZ -= 0.3;
+	}
+
+	if (keys[GLFW_KEY_3])
+	{
+		if (leftArm1 < 90)
+			leftArm1++;
+	}
+
+	if (keys[GLFW_KEY_4])
+	{
+		if (leftArm1 > 0)
+			leftArm1--;
 	}
 }
