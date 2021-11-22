@@ -44,7 +44,6 @@ GLfloat lastFrame = 0.0f;  	// Time of last frame
 float posX = 50, posY = 50, posZ = -50;
 float rightArm1, leftArm1;
 float rightArm2, leftArm2, rightLeg2, leftLeg2;
-float movLegoX, movLegoY, movLegoZ;
 
 #define MAX_FRAMES 9
 int i_max_steps = 190;
@@ -90,6 +89,8 @@ float movx=0;
 float movy=0;
 float movz=-130;
 bool subir;
+float movLegoX, movLegoY, movLegoZ;
+float rotLego;
 
 // Positions of the point lights
 glm::vec3 houseLights[] = {
@@ -427,18 +428,18 @@ int main()
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader SkyBoxshader("Shaders/SkyBox.vs", "Shaders/SkyBox.frag");
 
-	//Model Trees((char*)"Models/Trees/trees.obj");
+	Model Trees((char*)"Models/Trees/trees.obj");
 	Model House((char*)"Models/House/house.obj");
-	//Model LivingRoom((char*)"Models/LivingRoom/livingRoom.obj");
-	//Model LivingRoom2((char*)"Models/LivingRoom/livingRoom2.obj");
-	//Model Kitchen((char*)"Models/Kitchen/kitchen.obj");
-	//Model Bathroom((char*)"Models/Bathroom/bathroom.obj");
-	//Model Room((char*)"Models/Room/room.obj");
-	//Model Presents((char*)"Models/Presents/presents.obj");
-	//Model Windows((char*)"Models/Windows/windows.obj");
-	//Model MailBox((char*)"Models/Mailbox/mailbox.obj");
-	//Model Sled((char*)"Models/Sled/sled.obj");
-	//Model Sign((char*)"Models/Sign/sign.obj");
+	Model LivingRoom((char*)"Models/LivingRoom/livingRoom.obj");
+	Model LivingRoom2((char*)"Models/LivingRoom/livingRoom2.obj");
+	Model Kitchen((char*)"Models/Kitchen/kitchen.obj");
+	Model Bathroom((char*)"Models/Bathroom/bathroom.obj");
+	Model Room((char*)"Models/Room/room.obj");
+	Model Presents((char*)"Models/Presents/presents.obj");
+	Model Windows((char*)"Models/Windows/windows.obj");
+	Model MailBox((char*)"Models/Mailbox/mailbox.obj");
+	Model Sled((char*)"Models/Sled/sled.obj");
+	Model Sign((char*)"Models/Sign/sign.obj");
 	Model body((char*)"Models/Lego/body.obj");
 	Model head((char*)"Models/Lego/head.obj");
 	Model RightArm((char*)"Models/Lego/rightArm.obj");
@@ -686,141 +687,147 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		House.Draw(lightingShader);
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Kitchen.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Kitchen.Draw(lightingShader);
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Room.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Room.Draw(lightingShader);
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Bathroom.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Bathroom.Draw(lightingShader);
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//LivingRoom.Draw(lightingShader);
-
-
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//LivingRoom2.Draw(lightingShader);
-
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Presents.Draw(lightingShader);
-
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Trees.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		LivingRoom.Draw(lightingShader);
 
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Sign.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		LivingRoom2.Draw(lightingShader);
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//MailBox.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Presents.Draw(lightingShader);
 
-
-		//model = glm::mat4(1);
-		//model = glm::translate(model, glm::vec3(movx, movy, movz));
-		//model = rotate(model, glm::radians(rotSled), glm::vec3(0,1,0));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Sled.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Trees.Draw(lightingShader);
 
 
-		////Lego character1
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(1+movx, 23.1+movy, movz));
-		//model = glm::rotate(model, glm::radians(rotSled+90), glm::vec3(0, 1, 0));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//body.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Sign.Draw(lightingShader);
 
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
-		//model = glm::translate(model, glm::vec3(0, 1.4, 0));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//head.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		MailBox.Draw(lightingShader);
 
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
-		//model = glm::translate(model, glm::vec3(-0.93, 0.6, -0.1));
-		//model = glm::rotate(model, glm::radians(rightArm1), glm::vec3(0, 0, 1));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RightArm.Draw(lightingShader);
 
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
-		//model = glm::translate(model, glm::vec3(0.85, 0.65, -0.2));
-		//model = glm::rotate(model, glm::radians(leftArm1), glm::vec3(1, 0, 0));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//LeftArm.Draw(lightingShader);
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(movx, movy, movz));
+		model = rotate(model, glm::radians(rotSled), glm::vec3(0,1,0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Sled.Draw(lightingShader);
 
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
-		//model = glm::translate(model, glm::vec3(-1.1, -1.22, -0.09));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//RightLeg.Draw(lightingShader);
 
-		//model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
-		//model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
-		//model = glm::translate(model, glm::vec3(1.1, -1.22, -0.05));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//LeftLeg.Draw(lightingShader);
-
-		//Lego character2
+		//Lego character1
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0,-7.6,-40.05));
-		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::translate(model, glm::vec3(1+movx, 23.1+movy, movz));
+		model = glm::rotate(model, glm::radians(rotSled+90), glm::vec3(0, 1, 0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		body.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0, -6.37, -40.18));
-		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0, 1.4, 0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		head.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-0.9, -7, -40));
-		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(-0.93, 0.6, -0.1));
+		model = glm::rotate(model, glm::radians(rightArm1), glm::vec3(0, 0, 1));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		RightArm.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.9, -7, -40));
-		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0.85, 0.65, -0.2));
+		model = glm::rotate(model, glm::radians(leftArm1), glm::vec3(1, 0, 0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		LeftArm.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1.1, -9, -40.07));
-		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(-1.1, -1.22, -0.09));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		RightLeg.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1.1, -9, -40));
+		model = glm::translate(model, glm::vec3(1 + movx, 23 + movy, movz));
+		model = glm::rotate(model, glm::radians(rotSled + 90), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(1.1, -1.22, -0.05));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		LeftLeg.Draw(lightingShader);
+
+		//Lego character2
+		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0, -7.6, -40.05));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		body.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0, -6.37, -40.18));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		head.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(-0.9, -7, -40));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		RightArm.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0.9, -7, -40));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		LeftArm.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(-1.1, -9, -40.07));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		RightLeg.Draw(lightingShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movLegoX, movLegoY, movLegoZ));
+		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(1.1, -9, -40));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		LeftLeg.Draw(lightingShader);
 
 
 		glEnable(GL_DEPTH_TEST);
-		//glEnable(GL_BLEND);
-		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Windows.Draw(lightingShader);
-		//glDisable(GL_BLEND);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Windows.Draw(lightingShader);
+		glDisable(GL_BLEND);
 
 
 
@@ -957,10 +964,12 @@ void animacion()
 				trayectory1 = false;
 				trayectory2 = true;
 				rotSled = -90.0f;
+				rotLego = 90.0f;
 			}
 			else
 			{
 				movx += 0.5f;
+				movLegoX -= 0.3f;
 			}
 		}
 
@@ -971,10 +980,12 @@ void animacion()
 				trayectory2 = false;
 				trayectory3 = true;
 				rotSled = 180.0f;
+				rotLego = 0.0f;
 			}
 			else
 			{
 				movz += 0.5f;
+				movLegoZ -= 0.3f;
 			}
 		}
 
@@ -985,11 +996,12 @@ void animacion()
 				trayectory3 = false;
 				trayectory4 = true;
 				rotSled = 90.0;
-
+				rotLego = 90.0f;
 			}
 			else
 			{
 				movx -= 0.5f;
+				movLegoX += 0.3;
 			}
 		}
 
@@ -1000,10 +1012,12 @@ void animacion()
 				trayectory4 = false;
 				trayectory1 = true;
 				rotSled = 0.0f;
+				rotLego = 180.0f;
 			}
 			else
 			{
 				movz -= 0.5f;
+				movLegoZ += 0.3f;
 			}
 		}
 	} //Animación trineo.
