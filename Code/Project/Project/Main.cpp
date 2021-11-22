@@ -428,9 +428,9 @@ int main()
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader SkyBoxshader("Shaders/SkyBox.vs", "Shaders/SkyBox.frag");
 
-	Model Trees((char*)"Models/Trees/trees.obj");
+	//Model Trees((char*)"Models/Trees/trees.obj");
 	Model House((char*)"Models/House/house.obj");
-	Model LivingRoom((char*)"Models/LivingRoom/livingRoom.obj");
+	/*Model LivingRoom((char*)"Models/LivingRoom/livingRoom.obj");
 	Model LivingRoom2((char*)"Models/LivingRoom/livingRoom2.obj");
 	Model Kitchen((char*)"Models/Kitchen/kitchen.obj");
 	Model Bathroom((char*)"Models/Bathroom/bathroom.obj");
@@ -439,7 +439,7 @@ int main()
 	Model Windows((char*)"Models/Windows/windows.obj");
 	Model MailBox((char*)"Models/Mailbox/mailbox.obj");
 	Model Sled((char*)"Models/Sled/sled.obj");
-	Model Sign((char*)"Models/Sign/sign.obj");
+	Model Sign((char*)"Models/Sign/sign.obj");*/
 	Model body((char*)"Models/Lego/body.obj");
 	Model head((char*)"Models/Lego/head.obj");
 	Model RightArm((char*)"Models/Lego/rightArm.obj");
@@ -687,50 +687,50 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		House.Draw(lightingShader);
 
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Kitchen.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Kitchen.Draw(lightingShader);
 
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Room.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Room.Draw(lightingShader);
 
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Bathroom.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Bathroom.Draw(lightingShader);
 
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		LivingRoom.Draw(lightingShader);
-
-
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		LivingRoom2.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Presents.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Trees.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//LivingRoom.Draw(lightingShader);
 
 
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Sign.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//LivingRoom2.Draw(lightingShader);
 
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		MailBox.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Presents.Draw(lightingShader);
+
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Trees.Draw(lightingShader);
 
 
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movx, movy, movz));
-		model = rotate(model, glm::radians(rotSled), glm::vec3(0,1,0));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Sled.Draw(lightingShader);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Sign.Draw(lightingShader);
+
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//MailBox.Draw(lightingShader);
+
+
+		//model = glm::mat4(1);
+		//model = glm::translate(model, glm::vec3(movx, movy, movz));
+		//model = rotate(model, glm::radians(rotSled), glm::vec3(0,1,0));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Sled.Draw(lightingShader);
 
 
 		//Lego character1
@@ -822,12 +822,12 @@ int main()
 
 
 		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Windows.Draw(lightingShader);
-		glDisable(GL_BLEND);
+		//glEnable(GL_BLEND);
+		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Windows.Draw(lightingShader);
+		//glDisable(GL_BLEND);
 
 
 

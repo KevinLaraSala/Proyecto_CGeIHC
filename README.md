@@ -20,3 +20,4 @@ Las animaciones del trineo y el duende se activan con la tecla F.
 Las animaciones de Keyframes del duende, se activan con la tecla 1,2,3,4 para mover ambos brazos. Los frames se 
 guardan con la tecla K, y para iniciar la animación se presiona la tecla L.
 
+*Nota, el proyecto puede tardar algo de tiempo en cargar. Ser paciente. Esto depende de cada equipo.
