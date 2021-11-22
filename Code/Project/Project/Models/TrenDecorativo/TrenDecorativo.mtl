@@ -1,0 +1,68 @@
+newmtl TrenDecorativo_03___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd MetalRojo.jpg
+map_Ka MetalRojo.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl TrenDecorativo_Tren_01___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd MetaTren.jpg
+map_Ka MetaTren.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl TrenDecorativo_Tren_02___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Metal_Llantas.jpg
+map_Ka Metal_Llantas.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl TrenDecorativo_Tren_03___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd MetalRojo.jpg
+map_Ka MetalRojo.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl TrenDecorativo_Tren_07___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd MetalCampana.jpg
+map_Ka MetalCampana.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl TrenDecorativo_Tren_08___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd MetalRojo.jpg
+map_Ka MetalRojo.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl TrenDecorativo_Tren_wire_204204204
+illum 4
+Kd 0.80 0.80 0.80
+Ka 0.80 0.80 0.80
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.35 0.35 0.35
+Ns 32.00

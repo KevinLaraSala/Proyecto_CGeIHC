@@ -1,0 +1,21 @@
+newmtl mailbox:lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd wood_model_dom_2_1.jpg
+Ni 1.00
+newmtl mailbox:lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd silver.jpg
+Ni 1.00
+newmtl mailbox:lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00

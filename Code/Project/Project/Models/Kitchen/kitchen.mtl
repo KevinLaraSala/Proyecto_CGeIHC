@@ -1,0 +1,110 @@
+newmtl house:DB_Apps_Tech_04_13_06
+illum 4
+Kd 0.02 0.02 0.02
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+Ks 0.01 0.01 0.01
+Ns 66.67
+newmtl house:DB_Apps_Tech_04_13_12
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+Ks 2.07 2.07 2.07
+Ns 83.33
+newmtl house:DB_Apps_Tech_04_13_14
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.60
+Ks 1.00 1.00 1.00
+Ns 54.17
+newmtl house:blinn3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd silver.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl house:lambert32SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd silver.jpg
+Ni 1.00
+newmtl house:lambert35SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd black-matte-background.jpg
+Ni 1.00
+newmtl house:lambert38SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd black-matte-background.jpg
+Ni 1.00
+newmtl house:lambert39SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd silver.jpg
+Ni 1.00
+newmtl house:lambert40SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd wood_model_dom_2_1.jpg
+Ni 1.00
+newmtl house:lambert44SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd wood_model_dom_2_1.jpg
+Ni 1.00
+newmtl house:lambert44SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl house:lambert45SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd sofa.png
+Ni 1.00
+newmtl house:lambert47SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd ivory.jpg
+Ni 1.00
+newmtl house:lambert50SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd silver_2.jpg
+Ni 1.00
+newmtl house:pasted__lambert40SG7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd wood_model_dom_2_1.jpg
+Ni 1.00

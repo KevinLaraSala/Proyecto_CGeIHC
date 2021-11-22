@@ -1,0 +1,385 @@
+newmtl livingRoom:pasted__lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 788100.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert12SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__lambert13SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert14SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Texture_gold.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert19SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd wood_model_dom_2_1.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert27SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert29SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd wood_model_dom_2_1.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert33SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bag.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert35SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__lambert36SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__lambert37SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__lambert38SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bag.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert39SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert40SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd rope2.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert41SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bagBM.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert55SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pillow.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert56SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd beige.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert57SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd belt.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert58SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd belt.jpg
+Ni 1.00
+newmtl livingRoom:pasted__lambert59SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd boots.jpeg
+Ni 1.00
+newmtl livingRoom:pasted__lambert61SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd boots.jpeg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert10SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd leaf.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert12SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert12SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert12SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert13SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert13SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert13SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert14SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Texture_gold.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert14SG6
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Texture_gold.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert33SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bag.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert33SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bag.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert35SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert35SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert36SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert37SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert37SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert38SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bag.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert38SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bag.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert39SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert39SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert40SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd rope2.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert40SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd rope2.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert41SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bagBM.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__lambert41SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bagBM.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert10SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd leaf.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert10SG3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd leaf.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert11SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert11SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert12SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert12SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert13SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__lambert13SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd white.jpg
+Ni 1.00
+newmtl livingRoom:pasted__pasted__pasted__pasted__lambert35SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd red.png
+Ni 1.00
