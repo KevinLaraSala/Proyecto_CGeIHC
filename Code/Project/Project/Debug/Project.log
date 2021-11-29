@@ -1,9 +1,6 @@
 ﻿  Main.cpp
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(208,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(92,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(92,47): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(209,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -14,7 +11,7 @@ D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(210,21): warn
           [
               T=float
           ]
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(212,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(211,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
@@ -29,7 +26,7 @@ D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(214,21): warn
           [
               T=float
           ]
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(303,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(215,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
@@ -44,27 +41,30 @@ D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(305,21): warn
           [
               T=float
           ]
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(652,24): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(956,15): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(958,15): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1004,20): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1100,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1101,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1105,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1106,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1108,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1109,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1138,44): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1142,45): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1146,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1150,42): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1157,14): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1158,14): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1159,14): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1166,14): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1167,14): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1168,14): warning C4305: '-=': truncation from 'double' to 'float'
-soil2-debug.lib(image_DXT.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_DXT.obj)' or at 'D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Debug\soil2-debug.pdb'; linking object as if no debug info
-soil2-debug.lib(image_helper.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_helper.obj)' or at 'D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Debug\soil2-debug.pdb'; linking object as if no debug info
-soil2-debug.lib(SOIL2.obj) : warning LNK4099: PDB '' was not found with 'soil2-debug.lib(SOIL2.obj)' or at ''; linking object as if no debug info
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(306,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(653,24): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(959,15): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(961,15): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(962,34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1008,20): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1104,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1105,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1109,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1110,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1112,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1113,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1142,44): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1146,45): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1150,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1154,42): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1161,14): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1162,14): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1163,14): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1170,14): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1171,14): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Project\Main.cpp(1172,14): warning C4305: '-=': truncation from 'double' to 'float'
   Project.vcxproj -> D:\Documentos\Github\Proyecto_CGeIHC\Code\Project\Debug\Project.exe
