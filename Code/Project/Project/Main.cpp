@@ -51,45 +51,45 @@ int i_curr_steps = 0;
 typedef struct _frame
 {
 	//Variables para GUARDAR Key Frames
-		float posX;		//Variable para PosicionX
-		float posY;		//Variable para PosicionY
-		float posZ;		//Variable para PosicionZ
-		float incX;		//Variable para IncrementoX
-		float incY;		//Variable para IncrementoY
-		float incZ;		//Variable para IncrementoZ
-		
-		float rightArm1;
-		float incRightArm1;
-		float leftArm1;
-		float incLeftArm1;
+	float posX;		//Variable para PosicionX
+	float posY;		//Variable para PosicionY
+	float posZ;		//Variable para PosicionZ
+	float incX;		//Variable para IncrementoX
+	float incY;		//Variable para IncrementoY
+	float incZ;		//Variable para IncrementoZ
 
-		float rightArm2;
-		float incRightArm2;
-		float leftArm2;
-		float incLeftArm2;
-		float rightLeg2;
-		float incRightLeg2;
-		float leftLeg2;
-		float incLeftLeg2;
+	float rightArm1;
+	float incRightArm1;
+	float leftArm1;
+	float incLeftArm1;
+
+	float rightArm2;
+	float incRightArm2;
+	float leftArm2;
+	float incLeftArm2;
+	float rightLeg2;
+	float incRightLeg2;
+	float leftLeg2;
+	float incLeftLeg2;
 }FRAME;
 
 FRAME KeyFrame[MAX_FRAMES];
-int FrameIndex = 0;			
+int FrameIndex = 0;
 bool play = false;
 int playIndex = 0;
 
 //Animación sencilla.
-bool sledTrayectory=false;
-bool trayectory1=true;
+bool sledTrayectory = false;
+bool trayectory1 = true;
 bool trayectory2;
 bool trayectory3;
 bool trayectory4;
 float rotSled;
-float movx=0;
-float movy=0;
-float movz=-130;
+float movx = 0;
+float movy = 0;
+float movz = -130;
 bool subir;
-float movLegoX, movLegoY=-7.3, movLegoZ=-40.05;
+float movLegoX, movLegoY = -7.3, movLegoZ = -40.05;
 float rotLego = 90;
 float caminar;
 
@@ -98,8 +98,8 @@ glm::vec3 houseLights[] = {
 	glm::vec3(40, 7.85, -23.2),
 	glm::vec3(20, 7.85, -23.2),
 	glm::vec3(0, 7.85, -33),
-	
-	
+
+
 	glm::vec3(-21, 7.85, -20),
 	glm::vec3(-21, 7.85, 0),
 	glm::vec3(-21, 7.85, 20),
@@ -161,7 +161,7 @@ void resetElements(void)
 	posX = KeyFrame[0].posX;
 	posY = KeyFrame[0].posY;
 	posZ = KeyFrame[0].posZ;
-	
+
 	rightArm1 = KeyFrame[0].rightArm1;
 	leftArm1 = KeyFrame[0].leftArm1;
 
@@ -437,11 +437,12 @@ int main()
 	//Model Bathroom((char*)"Models/Bathroom/bathroom.obj");
 	//Model Room((char*)"Models/Room/room.obj");
 	Model Present1((char*)"Models/Presents/present1.obj");
-	Model Present2((char*)"Models/Presents/present2.obj");
+	//Model Present2((char*)"Models/Presents/present2.obj");
 	Model Windows((char*)"Models/Windows/windows_.obj");
 	//Model MailBox((char*)"Models/Mailbox/mailbox.obj");
 	//Model Sled((char*)"Models/Sled/sled.obj");
 	//Model Sign((char*)"Models/Sign/sign.obj");
+	//Model Bag((char*)"Models/Bag/sac.obj");
 	Model body((char*)"Models/Lego/body.obj");
 	Model head((char*)"Models/Lego/head.obj");
 	Model RightArm((char*)"Models/Lego/rightArm.obj");
@@ -727,6 +728,9 @@ int main()
 		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		//MailBox.Draw(lightingShader);
 
+		//model = glm::mat4(1);
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Bag.Draw(lightingShader);
 
 		//model = glm::mat4(1);
 		//model = glm::translate(model, glm::vec3(movx, movy, movz));
@@ -955,19 +959,19 @@ void animacion()
 			rightLeg2 += KeyFrame[playIndex].incRightLeg2;
 			leftLeg2 += KeyFrame[playIndex].incLeftLeg2;
 			i_curr_steps++;
-		}	
+		}
 	}
 	if (sledTrayectory)
 	{
-		if(movy < -20.0f)
+		if (movy < -20.0f)
 			subir = true;
-		else if(movy > 12.0f)
+		else if (movy > 12.0f)
 			subir = false;
 		if (subir)
 			movy += 0.1;
 		else
 			movy -= 0.1;
-		caminar = sin(glfwGetTime()*4) * 70;
+		caminar = sin(glfwGetTime() * 4) * 70;
 
 		if (trayectory1)
 		{
@@ -1003,7 +1007,7 @@ void animacion()
 
 		if (trayectory3)
 		{
-			if (movx ==-140.0f)
+			if (movx == -140.0f)
 			{
 				trayectory3 = false;
 				trayectory4 = true;
@@ -1147,19 +1151,19 @@ void DoMovement()
 
 	if (keys[GLFW_KEY_UP])
 	{
-		camera.ProcessKeyboard(FORWARD, deltaTime+0.05);
+		camera.ProcessKeyboard(FORWARD, deltaTime + 0.05);
 	}
 	if (keys[GLFW_KEY_DOWN])
 	{
-		camera.ProcessKeyboard(BACKWARD, deltaTime+0.05);
+		camera.ProcessKeyboard(BACKWARD, deltaTime + 0.05);
 	}
 	if (keys[GLFW_KEY_LEFT])
 	{
-		camera.ProcessKeyboard(LEFT, deltaTime+0.05);
+		camera.ProcessKeyboard(LEFT, deltaTime + 0.05);
 	}
 	if (keys[GLFW_KEY_RIGHT])
 	{
-		camera.ProcessKeyboard(RIGHT, deltaTime+0.05);
+		camera.ProcessKeyboard(RIGHT, deltaTime + 0.05);
 	}
 
 	if (keys[GLFW_KEY_1])
