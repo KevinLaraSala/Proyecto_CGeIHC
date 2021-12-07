@@ -1,86 +1,32 @@
-newmtl initialShadingGroup
-illum 4
-Kd 0.50 0.50 0.50
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-newmtl santa1:initialShadingGroup
-illum 4
-Kd 0.50 0.50 0.50
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-newmtl santa1:lambert2SG
+newmtl bodySanta:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd red.png
 Ni 1.00
-newmtl santa1:lambert3SG
+newmtl bodySanta:lambert4SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd white.jpg
 Ni 1.00
-newmtl santa1:lambert3SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd red.png
-Ni 1.00
-newmtl santa1:lambert4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd white.jpg
-Ni 1.00
-newmtl santa1:lambert4SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd white.jpg
-Ni 1.00
-newmtl santa1:lambert5SG
+newmtl bodySanta:lambert5SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Black_Cotton.jpg
 Ni 1.00
-newmtl santa1:lambert6SG
+newmtl bodySanta:lambert6SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd white.jpg
 Ni 1.00
-newmtl santa1:lambert7SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd white.jpg
-Ni 1.00
-newmtl santa1:lambert8SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd white.jpg
-Ni 1.00
-newmtl santa1:lambert10SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd skin.jpg
-Ni 1.00
-newmtl santa1:lambert11SG
+newmtl bodySanta:lambert11SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00

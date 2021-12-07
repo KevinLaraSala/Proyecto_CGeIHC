@@ -38,6 +38,13 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
+newmtl house:pasted__lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd gray.png
+Ni 1.00
 newmtl house:pasted__lambert3SG2
 illum 4
 Kd 0.00 0.00 0.00
@@ -70,12 +77,6 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd roof.jpg
-Ni 1.00
-newmtl house:pasted__lambert8SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
 Ni 1.00
 newmtl house:pasted__lambert9SG
 illum 4
@@ -160,13 +161,6 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd roof.jpg
 Ni 1.00
-newmtl house:pasted__lambert20SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd golden.png
-Ni 1.00
 newmtl house:pasted__lambert21SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -198,11 +192,4 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-Ni 1.00
-newmtl pasted__lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd gray.png
 Ni 1.00

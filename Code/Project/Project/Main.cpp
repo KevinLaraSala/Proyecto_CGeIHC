@@ -88,7 +88,16 @@ float caminar;
 //Santa
 float movSantaX;
 float movSantaY;
-float movSantaZ = 120;
+float movSantaZ = 50;
+float movDoorX = -2.3;
+float movDoorY = -1.2;
+float movDoorZ = 34.2;
+float rotSanta;
+float trayectorySanta1;
+float trayectorySanta2;
+float trayectorySanta3;
+float trayectorySanta4;
+bool santaTrayectory;
 
 // Positions of the point lights
 glm::vec3 houseLights[] = {
@@ -145,11 +154,6 @@ void saveFrame(void)
 	KeyFrame[1].leftArm1 = 45;
 	KeyFrame[2].leftArm1 = 0;
 
-	//KeyFrame[FrameIndex].rightArm2 = rightArm2;
-	//KeyFrame[FrameIndex].leftArm2 = leftArm2;
-	//KeyFrame[FrameIndex].rightLeg2 = rightLeg2;
-	//KeyFrame[FrameIndex].leftLeg2 = leftLeg2;
-
 	FrameIndex = 3;
 }
 
@@ -157,22 +161,12 @@ void resetElements(void)
 {
 	rightArm1 = KeyFrame[0].rightArm1;
 	leftArm1 = KeyFrame[0].leftArm1;
-
-	//rightArm2 = KeyFrame[0].rightArm2;
-	//leftArm2 = KeyFrame[0].leftArm2;
-	//rightLeg2 = KeyFrame[0].rightLeg2;
-	//leftLeg2 = KeyFrame[0].leftLeg2;
 }
 
 void interpolation(void)
 {
 	KeyFrame[playIndex].incRightArm1 = (KeyFrame[playIndex + 1].rightArm1 - KeyFrame[playIndex].rightArm1) / i_max_steps;
 	KeyFrame[playIndex].incLeftArm1 = (KeyFrame[playIndex + 1].leftArm1 - KeyFrame[playIndex].leftArm1) / i_max_steps;
-
-	//KeyFrame[playIndex].incRightArm2 = (KeyFrame[playIndex + 1].rightArm2 - KeyFrame[playIndex].rightArm2) / i_max_steps;
-	//KeyFrame[playIndex].incLeftArm2 = (KeyFrame[playIndex + 1].leftArm2 - KeyFrame[playIndex].leftArm2) / i_max_steps;
-	//KeyFrame[playIndex].incRightLeg2 = (KeyFrame[playIndex + 1].rightLeg2 - KeyFrame[playIndex].rightLeg2) / i_max_steps;
-	//KeyFrame[playIndex].incLeftLeg2 = (KeyFrame[playIndex + 1].leftLeg2 - KeyFrame[playIndex].leftLeg2) / i_max_steps;
 }
 
 void iluminacion(void)
@@ -424,9 +418,10 @@ int main()
 	//Model Kitchen((char*)"Models/Kitchen/kitchen.obj");
 	//Model Bathroom((char*)"Models/Bathroom/bathroom.obj");
 	//Model Room((char*)"Models/Room/room.obj");
-	Model Present1((char*)"Models/Presents/present1.obj");
-	//Model Present2((char*)"Models/Presents/present2.obj");
-	Model Windows((char*)"Models/Windows/windows_.obj");
+	//Model Present1((char*)"Models/Presents/present1.obj");
+	Model Present2((char*)"Models/Presents/present2.obj");
+	Model Windows((char*)"Models/Windows/windows.obj");
+	Model Door((char*)"Models/Windows/doorWindow.obj");
 	//Model MailBox((char*)"Models/Mailbox/mailbox.obj");
 	Model Sled((char*)"Models/Sled/sled.obj");
 	Model hSanta((char*)"Models/Santa/headSanta.obj");
@@ -436,7 +431,7 @@ int main()
 	Model rlSanta((char*)"Models/Santa/rightLegSanta.obj");
 	Model llSanta((char*)"Models/Santa/leftLegSanta.obj");
 	//Model Sign((char*)"Models/Sign/sign.obj");
-	//Model Bag((char*)"Models/Bag/sac.obj");
+	Model Bag((char*)"Models/Bag/sac.obj");
 	//Model body((char*)"Models/Lego/body.obj");
 	//Model head((char*)"Models/Lego/head.obj");
 	//Model RightArm((char*)"Models/Lego/rightArm.obj");
@@ -715,9 +710,9 @@ int main()
 		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		//MailBox.Draw(lightingShader);
 
-		//model = glm::mat4(1);
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//Bag.Draw(lightingShader);
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Bag.Draw(lightingShader);
 
 
 		//model = glm::mat4(1);
@@ -825,39 +820,49 @@ int main()
 		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		//Present1.Draw(lightingShader);
 
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(0, -2.0, -3.5));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0, 1, 0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Present2.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
-		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(0.0, -1.3, 0.28));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		hSanta.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
-		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(0.0, -4, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		bSanta.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
-		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(-1.5, -2.73, 0));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1, 0, 0));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0, 0, 1));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		laSanta.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
-		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(1.5, -2.73, 0));
-		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(1, 0, 0));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1, 0, 0));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0, 0, 1));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		raSanta.Draw(lightingShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
-		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(-0.8, -6.2, 0));
 		model = glm::rotate(model, glm::radians(caminar), glm::vec3(1, 0, 0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -865,20 +870,24 @@ int main()
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
-		model = glm::rotate(model, glm::radians(rotLego), glm::vec3(0, 1, 0));
+		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(0.8, -6.2, 0));
 		model = glm::rotate(model, glm::radians(-caminar), glm::vec3(1, 0, 0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		rlSanta.Draw(lightingShader);
 
 		glEnable(GL_DEPTH_TEST);
-		//glEnable(GL_BLEND);
-		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		//model = glm::mat4(1);
 		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		//Windows.Draw(lightingShader);
-		//glDisable(GL_BLEND);
 
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movDoorX, movDoorY, movDoorZ));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Door.Draw(lightingShader);
+		glDisable(GL_BLEND);
 
 
 
@@ -984,10 +993,6 @@ void animacion()
 			rightArm1 += KeyFrame[playIndex].incRightArm1*2;
 			leftArm1 += KeyFrame[playIndex].incLeftArm1*2;
 
-			//rightArm2 += KeyFrame[playIndex].incRightArm2;
-			//leftArm2 += KeyFrame[playIndex].incLeftArm2;
-			//rightLeg2 += KeyFrame[playIndex].incRightLeg2;
-			//leftLeg2 += KeyFrame[playIndex].incLeftLeg2;
 			i_curr_steps+=2;
 		}
 	}
@@ -1067,6 +1072,22 @@ void animacion()
 			}
 		}
 	} //Animación trineo.
+
+	if (santaTrayectory)
+	{
+		if (trayectorySanta1)
+		{
+			if (movSantaX == 200)
+			{
+				trayectorySanta1 = false;
+				trayectorySanta2 = true;
+			}
+			else
+			{
+				movSantaX += 0.1;
+			}
+		}
+	}
 }
 
 
@@ -1095,7 +1116,10 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 	}
 
 	if (keys[GLFW_KEY_F])
+	{
 		sledTrayectory = !sledTrayectory;
+		santaTrayectory = !santaTrayectory;
+	}
 
 	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
 	{
