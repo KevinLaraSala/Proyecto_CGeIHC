@@ -1,53 +1,18 @@
-newmtl pasted__pasted__lambert37SG4
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd red.png
-Ni 1.00
-newmtl pasted__pasted__lambert38SG4
+newmtl present1:pasted__pasted__pasted__lambert33SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd bag.jpg
 Ni 1.00
-newmtl pasted__pasted__lambert39SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd white.jpg
-Ni 1.00
-newmtl pasted__pasted__lambert40SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd rope2.jpg
-Ni 1.00
-newmtl pasted__pasted__lambert41SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd bagBM.jpg
-Ni 1.00
-newmtl pasted__pasted__pasted__lambert33SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd bag.jpg
-Ni 1.00
-newmtl pasted__pasted__pasted__lambert35SG
+newmtl present1:pasted__pasted__pasted__lambert35SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd red.png
 Ni 1.00
-newmtl pasted__pasted__pasted__lambert36SG
+newmtl present1:pasted__pasted__pasted__lambert36SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
