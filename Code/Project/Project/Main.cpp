@@ -42,7 +42,6 @@ GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 // Keyframes
 float rightArm1, leftArm1;
-//float rightArm2, leftArm2, rightLeg2, leftLeg2;
 
 #define MAX_FRAMES 9
 int i_max_steps = 190;
@@ -53,15 +52,6 @@ typedef struct _frame
 	float incRightArm1;
 	float leftArm1;
 	float incLeftArm1;
-
-	//float rightArm2;
-	//float incRightArm2;
-	//float leftArm2;
-	//float incLeftArm2;
-	//float rightLeg2;
-	//float incRightLeg2;
-	//float leftLeg2;
-	//float incLeftLeg2;
 }FRAME;
 
 FRAME KeyFrame[MAX_FRAMES];
@@ -1018,7 +1008,7 @@ void animacion()
 			movy += 0.1;
 		else
 			movy -= 0.1;
-		caminar = sin(glfwGetTime() * 4) * 70;
+		caminar = sin(glfwGetTime() * 70) * 4;
 
 		if (trayectory1)
 		{
