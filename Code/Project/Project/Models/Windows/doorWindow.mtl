@@ -1,24 +1,24 @@
-newmtl doorWindow:lambert4SG
+newmtl lambert4SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd ventana.png
 Ni 1.00
-newmtl doorWindow:pasted__lambert8SG2
+newmtl pasted__lambert8SG2
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
-newmtl doorWindow:pasted__lambert17SG
+newmtl pasted__lambert17SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd wood.jpg
 Ni 1.00
-newmtl doorWindow:pasted__lambert20SG
+newmtl pasted__lambert20SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00

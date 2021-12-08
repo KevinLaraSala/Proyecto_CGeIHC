@@ -87,8 +87,8 @@ float rotLego = 90;
 float caminar;
 //Santa
 float movSantaX;
-float movSantaY;
-float movSantaZ = 50;
+float movSantaY = 5;
+float movSantaZ = 35;
 float movDoorX = -2.3;
 float movDoorY = -1.2;
 float movDoorZ = 34.2;
@@ -421,7 +421,8 @@ int main()
 	//Model Present1((char*)"Models/Presents/present1.obj");
 	Model Present2((char*)"Models/Presents/present2.obj");
 	Model Windows((char*)"Models/Windows/windows.obj");
-	Model Door((char*)"Models/Windows/doorWindow.obj");
+	Model DWindow((char*)"Models/Windows/doorWindow.obj");
+	Model Door((char*)"Models/Windows/door.obj");
 	//Model MailBox((char*)"Models/Mailbox/mailbox.obj");
 	Model Sled((char*)"Models/Sled/sled.obj");
 	Model hSanta((char*)"Models/Santa/headSanta.obj");
@@ -448,15 +449,6 @@ int main()
 		KeyFrame[i].incRightArm1 = 0;
 		KeyFrame[i].leftArm1 = 0;
 		KeyFrame[i].incLeftArm1 = 0;
-
-		//KeyFrame[i].rightArm2 = 0;
-		//KeyFrame[i].incRightArm2 = 0;
-		//KeyFrame[i].leftArm2 = 0;
-		//KeyFrame[i].incLeftArm2 = 0;
-		//KeyFrame[i].incRightLeg2 = 0;
-		//KeyFrame[i].incRightLeg2 = 0;
-		//KeyFrame[i].leftLeg2 = 0;
-		//KeyFrame[i].incLeftLeg2 = 0;
 	}
 
 
@@ -664,6 +656,7 @@ int main()
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glBindVertexArray(VAO);
+		glEnable(GL_DEPTH_TEST);
 
 
 		glm::mat4 model(1);
@@ -845,7 +838,7 @@ int main()
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
 		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
-		model = glm::translate(model, glm::vec3(-1.5, -2.73, 0));
+		model = glm::translate(model, glm::vec3(-1.5, -2.73, 0.5));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1, 0, 0));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0, 0, 1));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -854,7 +847,7 @@ int main()
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movSantaX, movSantaY, movSantaZ));
 		model = glm::rotate(model, glm::radians(rotSanta), glm::vec3(0, 1, 0));
-		model = glm::translate(model, glm::vec3(1.5, -2.73, 0));
+		model = glm::translate(model, glm::vec3(1.5, -2.73, 0.5));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1, 0, 0));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0, 0, 1));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -876,7 +869,13 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		rlSanta.Draw(lightingShader);
 
-		glEnable(GL_DEPTH_TEST);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(movDoorX, movDoorY, movDoorZ));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Door.Draw(lightingShader);
+		
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		//model = glm::mat4(1);
@@ -886,7 +885,8 @@ int main()
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(movDoorX, movDoorY, movDoorZ));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Door.Draw(lightingShader);
+		DWindow.Draw(lightingShader);
+
 		glDisable(GL_BLEND);
 
 
