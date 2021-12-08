@@ -1008,7 +1008,7 @@ void animacion()
 			movy += 0.1;
 		else
 			movy -= 0.1;
-		caminar = sin(glfwGetTime() * 70) * 4;
+		caminar = sin(glfwGetTime() * 4) * 70;
 
 		if (trayectory1)
 		{
